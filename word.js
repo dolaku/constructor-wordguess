@@ -31,3 +31,5 @@ var Word = function (word) {
 }
 
 module.exports = Word;
+
+console.log('word file linked');
