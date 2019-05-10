@@ -7,7 +7,7 @@ var Word = function (word) {
     // splits the word into an array
     // loops through to create letter placeholders of the word
     this.createBlank = function () {
-        var wordArr = this.word.split('');
+        var wordArr = this.wordToGuess.split('');
         for (var i = 0; i < wordArr.length; i++) {
             var indivLetters = new Letter(wordArr[i]);
             this.lettersArr.push(indivLetters);
@@ -32,4 +32,4 @@ var Word = function (word) {
 
 module.exports = Word;
 
-console.log('word file linked');
+// console.log('word file linked');

@@ -10,5 +10,15 @@ function pickRandomWord () {
     randomWord = wordBank[randomNum];
 }
 
+// choose a random word from the word bank
 pickRandomWord();
-console.log(randomWord);
+console.log('index.js generated: ' + randomWord);
+
+// create the new word
+// which create the letters from
+var targetWord = new Word(randomWord);
+targetWord.createBlank();
+console.log(targetWord.lettersArr);
+debugger;
+targetWord.display();
+
