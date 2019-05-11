@@ -23,11 +23,22 @@ var Word = function (word) {
     this.display = function () {
         var answer = '';
         for (var i = 0; i < this.lettersArr.length; i++) {
-            answer += this.lettersArr[i] + ' ';
+            this.lettersArr[i].swapLetter();
+            answer += this.lettersArr[i].shownLetter + ' ';
         }
         console.log(`${answer}\n`);
     }
 
+    this.checkAllLetters = function () {
+        var stillGuessing = false;
+        for (var i = 0; i < this.lettersArr.length; i++) {
+            if (this.lettersArr[i].isCorrect === false) {
+                console.log('Still letters to guess');
+                stillGuessing = true;
+            }
+        }
+        return stillGuessing;
+    }
 }
 
 module.exports = Word;
