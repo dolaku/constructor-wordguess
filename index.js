@@ -14,6 +14,8 @@ pickRandomWord();
 // and ask for user input
 var targetWord = new Word(randomWord);
 targetWord.createBlank();
+
+console.log('\nWhat is your side dish? Take a guess!'.green);
 targetWord.display();
 askUser();
 
@@ -32,7 +34,7 @@ function askUser() {
             {
                 type: 'input',
                 name: 'guessedLetter',
-                message: 'Please guess a letter:'.magenta
+                message: 'Please guess a letter:'.green
             }
         ]).then(function(res) {
 
@@ -46,7 +48,7 @@ function askUser() {
             // if there is more to guess, prompt user
             if (targetWord.leftToGuess > 0) {
                 debugger;
-                console.log(`Not quite there yet. ${targetWord.leftToGuess} more to go!\n`.grey);
+                console.log(`Not quite there yet. ${targetWord.leftToGuess} more to go!\n`);
                 debugger;
                 askUser();
             } else {
