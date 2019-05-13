@@ -1,9 +1,12 @@
 var Word = require('./word');
 var inquirer = require('inquirer');
 
-var wordBank = ['mashed potato', 'mac n cheese', 'french fries', 'cornbread'];
+var wordBank = ['mashed potato', 'mac n cheese', 'french fries'];
 var randomWord;
 
+var guessesCount = 10;
+var badGuesses = [];
+var goodGuesses = [];
 
 
 // choose a random word from the word bank
@@ -17,6 +20,7 @@ targetWord.createBlank();
 // console.log(targetWord.lettersArr);
 
 targetWord.display();
+// displayNewWord();
 askUser();
 
 
@@ -37,15 +41,21 @@ function askUser() {
                 message: 'Please guess a letter:'
             }
         ]).then(function(res) {
-            console.log(res);
 
             // check if guess is correct & updates display
             targetWord.guessing(res.guessedLetter);
+            // console.log(targetWord.lettersArr);
             targetWord.display();
+
             // check if all letters are guessed
             targetWord.checkAllLetters();
 
-            askUser();
+            
+            if (targetWord.leftToGuess > 0) {
+                askUser();
+            } else {
+                console.log('You Win!');
+            }
         });
 
 }

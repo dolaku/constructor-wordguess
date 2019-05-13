@@ -2,7 +2,8 @@ var Letter = require('./letter');
 
 var Word = function (word) {
     this.wordToGuess = word,
-    this.lettersArr = []
+    this.lettersArr = [],
+    this.leftToGuess;
 
     // splits the word into an array
     // loops through to create letter placeholders of the word
@@ -14,7 +15,7 @@ var Word = function (word) {
         }
     }
 
-    // takes in user input and evaluates against
+    // takes in user input and evaluates against lettersArr
     this.guessing = function (guess) {
         for (var i = 0; i < this.lettersArr.length; i++) {
             this.lettersArr[i].checkLetter(guess);
@@ -23,31 +24,32 @@ var Word = function (word) {
 
     // loops through word, updates the blanks to show correctly guessed letters
     this.display = function () {
-        var answer = '';
+        var blankSpaces = '';
         for (var i = 0; i < this.lettersArr.length; i++) {
             this.lettersArr[i].swapLetter();
 
             // show space characters correctly (without underscore)
             if (this.lettersArr[i].letter === ' ') {
                 this.lettersArr[i].shownLetter = ' ';
+                this.lettersArr[i].isCorrect = true;
             }
 
-            answer += this.lettersArr[i].shownLetter + ' ';
+            blankSpaces += this.lettersArr[i].shownLetter + ' ';
         }
-        console.log(`\n${answer}\n`);
+        console.log(`\n${blankSpaces}\n`);
     }
 
     // evaluates whether all letters have been guessed
     this.checkAllLetters = function () {
-        var stillGuessing = false;
+        this.leftToGuess = 0;
         for (var i = 0; i < this.lettersArr.length; i++) {
             if (this.lettersArr[i].isCorrect === false) {
-                stillGuessing = true;
+                this.leftToGuess++;
             }
         }
-        console.log('\n~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~');
-        console.log('Not quite there yet.\n');
-        return stillGuessing;
+
+        console.log('~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~');
+        console.log(`Not quite there yet. ${this.leftToGuess} more to go!\n`);
     }
 }
 
