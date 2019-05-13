@@ -14,24 +14,30 @@ var Word = function (word) {
         }
     }
 
+    // takes in user input and evaluates against
     this.guessing = function (guess) {
         for (var i = 0; i < this.lettersArr.length; i++) {
             this.lettersArr[i].checkLetter(guess);
         };
     }
 
+    // loops through word, updates the blanks to show correctly guessed letters
     this.display = function () {
         var answer = '';
         for (var i = 0; i < this.lettersArr.length; i++) {
             this.lettersArr[i].swapLetter();
+
+            // show space characters correctly (without underscore)
             if (this.lettersArr[i].letter === ' ') {
                 this.lettersArr[i].shownLetter = ' ';
             }
+
             answer += this.lettersArr[i].shownLetter + ' ';
         }
-        console.log(`${answer}\n`);
+        console.log(`\n${answer}\n`);
     }
 
+    // evaluates whether all letters have been guessed
     this.checkAllLetters = function () {
         var stillGuessing = false;
         for (var i = 0; i < this.lettersArr.length; i++) {
@@ -39,7 +45,8 @@ var Word = function (word) {
                 stillGuessing = true;
             }
         }
-        console.log('Not quite there yet.');
+        console.log('\n~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~');
+        console.log('Not quite there yet.\n');
         return stillGuessing;
     }
 }

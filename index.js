@@ -1,16 +1,14 @@
 var Word = require('./word');
 var inquirer = require('inquirer');
 
-var wordBank = ['mashed potato', 'mac n cheese', 'french fries'];
+var wordBank = ['mashed potato', 'mac n cheese', 'french fries', 'cornbread'];
 var randomWord;
-var randomWordSplit = '';
-var newWordBlank = '';
 
 
 
 // choose a random word from the word bank
 pickRandomWord();
-console.log('index.js generated: ' + randomWord);
+console.log('GENERATED: ' + randomWord);
 
 // create the new word
 // that create the letters
@@ -19,7 +17,6 @@ targetWord.createBlank();
 // console.log(targetWord.lettersArr);
 
 targetWord.display();
-// displayNewWord();
 askUser();
 
 
@@ -45,10 +42,10 @@ function askUser() {
             // check if guess is correct & updates display
             targetWord.guessing(res.guessedLetter);
             targetWord.display();
-
             // check if all letters are guessed
             targetWord.checkAllLetters();
 
+            askUser();
         });
 
 }
