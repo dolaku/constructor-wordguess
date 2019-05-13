@@ -3,7 +3,7 @@ var Letter = require('./letter');
 var Word = function (word) {
     this.wordToGuess = word,
     this.lettersArr = [],
-    this.leftToGuess;
+    this.leftToGuess,
 
     // splits the word into an array
     // loops through to create letter placeholders of the word
@@ -48,7 +48,7 @@ var Word = function (word) {
             }
         }
 
-        console.log('~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~');
+        console.log('~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~'.grey);
         
     }
 }
