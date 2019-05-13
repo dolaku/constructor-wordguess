@@ -5,22 +5,19 @@ var wordBank = ['mashed potato', 'mac n cheese', 'french fries'];
 var randomWord;
 
 var guessesCount = 10;
-var badGuesses = [];
-var goodGuesses = [];
+var wrongGuesses = [];
+var correctGuesses = [];
 
 
 // choose a random word from the word bank
 pickRandomWord();
-console.log('GENERATED: ' + randomWord);
 
 // create the new word
-// that create the letters
+// show the blank spaces
+// and ask for user input
 var targetWord = new Word(randomWord);
 targetWord.createBlank();
-// console.log(targetWord.lettersArr);
-
 targetWord.display();
-// displayNewWord();
 askUser();
 
 
@@ -50,11 +47,13 @@ function askUser() {
             // check if all letters are guessed
             targetWord.checkAllLetters();
 
-            
+            // if there is more to guess, prompt user
             if (targetWord.leftToGuess > 0) {
+                console.log(`Not quite there yet. ${targetWord.leftToGuess} more to go!\n`);
                 askUser();
             } else {
-                console.log('You Win!');
+                // no more to guess, win message
+                console.log(`You Win! You get a side of ${targetWord.wordToGuess}.`);
             }
         });
 

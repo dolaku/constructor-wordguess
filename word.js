@@ -49,10 +49,8 @@ var Word = function (word) {
         }
 
         console.log('~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~');
-        console.log(`Not quite there yet. ${this.leftToGuess} more to go!\n`);
+        
     }
 }
 
 module.exports = Word;
-
-// console.log('word file linked');
