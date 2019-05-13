@@ -24,6 +24,9 @@ var Word = function (word) {
         var answer = '';
         for (var i = 0; i < this.lettersArr.length; i++) {
             this.lettersArr[i].swapLetter();
+            if (this.lettersArr[i].letter === ' ') {
+                this.lettersArr[i].shownLetter = ' ';
+            }
             answer += this.lettersArr[i].shownLetter + ' ';
         }
         console.log(`${answer}\n`);
@@ -33,10 +36,10 @@ var Word = function (word) {
         var stillGuessing = false;
         for (var i = 0; i < this.lettersArr.length; i++) {
             if (this.lettersArr[i].isCorrect === false) {
-                console.log('Still letters to guess');
                 stillGuessing = true;
             }
         }
+        console.log('Not quite there yet.');
         return stillGuessing;
     }
 }
