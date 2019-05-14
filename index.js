@@ -44,12 +44,10 @@ function askUser() {
 
             // check if all letters are guessed
             targetWord.checkAllLetters();
-            debugger;
+            
             // if there is more to guess, prompt user
             if (targetWord.leftToGuess > 0) {
-                debugger;
                 console.log(`Not quite there yet. ${targetWord.leftToGuess} more to go!\n`);
-                debugger;
                 askUser();
             } else {
                 // no more to guess, win message
