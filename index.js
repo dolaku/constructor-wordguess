@@ -2,7 +2,7 @@ var Word = require('./word');
 var inquirer = require('inquirer');
 var colors = require('colors');
 
-var wordBank = ['mashed potato', 'mac n cheese', 'french fries'];
+var wordBank = ['mashed potato', 'mac n cheese', 'french fries', 'cornbread', 'potato salad', 'pasta salad', 'cheddar biscuits', 'garlic bread', 'baked beans', 'baked potato', 'coleslaw', 'salad', 'spinach dip', 'sauteed mushrooms', 'green beans', 'roasted squash'];
 var randomWord;
 
 
